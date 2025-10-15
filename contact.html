@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Yared Beyene</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === "light" ? "dark" : "light";
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    <div class="logo">Yared Beyene</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
+  </nav>
+
+  <section class="hero fade-in">
+    <h1>Get in Touch</h1>
+    <p>Let’s collaborate or talk about UX research, design, or innovation. Feel free to drop a message below.</p>
+  </section>
+
+  <form class="fade-in" action="mailto:ybeyene@example.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <footer>
+    <p>© 2025 Yared Beyene. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

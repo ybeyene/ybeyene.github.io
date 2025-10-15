@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Yared Beyene</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === "light" ? "dark" : "light";
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    <div class="logo">Yared Beyene</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
+  </nav>
+
+  <section class="hero fade-in">
+    <img src="images/profile.jpg" alt="Yared Beyene" class="profile-photo" />
+    <h1>About Me</h1>
+    <p>Hi! I’m Yared — a UX Researcher & Designer with a Master’s in Information from the University of Michigan, specializing in Human-Computer Interaction (HCI). I focus on understanding human behavior to design intuitive digital experiences.</p>
+  </section>
+
+  <section class="grid fade-in">
+    <div class="card">
+      <h3>🎯 My Design Philosophy</h3>
+      <p>Design begins with empathy. I believe every interaction should reflect understanding, inclusivity, and simplicity — transforming complexity into clarity.</p>
+    </div>
+    <div class="card">
+      <h3>💡 My Skills</h3>
+      <p>User Research, Wireframing, Prototyping, Usability Testing, Information Architecture, SQL Analytics, and UX Writing.</p>
+    </div>
+    <div class="card">
+      <h3>🤝 Collaboration</h3>
+      <p>I love working with cross-functional teams and mentoring others in design thinking and problem-solving methodologies.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Yared Beyene. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
