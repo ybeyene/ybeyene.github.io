@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SmartShopper — Case Study | Yared Beyene</title>
+  <meta name="description" content="SmartShopper case study — UX research, process, and outcomes by Yared Beyene. Designing a smarter grocery shopping experience." />
+  <style>
+    :root{
+      --bg:#f8fafc; --card:#fff; --muted:#6b7280; --accent:#4f46e5;
+      --maxw:1000px; --radius:12px; --glass: rgba(255,255,255,0.6);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%; margin:0; background:var(--bg); color:#0f172a; -webkit-font-smoothing:antialiased;}
+    a{color:var(--accent); text-decoration:none}
+    .wrap{max-width:var(--maxw); margin:36px auto; padding:24px; box-sizing:border-box;}
+    header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px;}
+    header .brand{display:flex; gap:12px; align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#c4b5fd,#bfdbfe); display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
+    h1{margin:0;font-size:28px}
+    p.lead{color:var(--muted); margin:6px 0 0}
+    .grid{display:grid; gap:20px}
+    .two-col{grid-template-columns: 1fr 320px;}
+    @media (max-width:880px){ .two-col{grid-template-columns:1fr} .aside{order:2} }
+    .card{background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    .meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .pill{background:#eef2ff;color:#3730a3;padding:6px 10px;border-radius:999px;font-size:13px}
+    .section-title{font-size:18px;margin:0 0 10px}
+    .muted{color:var(--muted); line-height:1.6}
+    .kpi-row{display:flex; gap:18px; margin-top:12px}
+    .kpi{background:linear-gradient(180deg,#fff,#fbfbff); padding:12px; border-radius:10px; box-shadow:0 4px 12px rgba(15,23,42,0.04); min-width:110px; text-align:center}
+    .kpi strong{display:block; font-size:20px}
+    .hero-image{width:100%; height:220px; border-radius:10px; background:#e6edf9; display:flex; align-items:center; justify-content:center; color:var(--muted); font-weight:600}
+    .content h3{margin-top:0}
+    .list{margin:10px 0 0; padding-left:18px}
+    .cta-row{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
+    .btn{padding:10px 14px; border-radius:8px; border:0; cursor:pointer; font-weight:600}
+    .btn-primary{background:var(--accent); color:white}
+    .btn-ghost{background:transparent; border:1px solid #e6e9f2; color:#111827}
+    footer{margin-top:28px; text-align:center; color:var(--muted); font-size:13px}
+    /* simple image placeholders grid */
+    .thumb-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px}
+    .thumb{height:100px;border-radius:8px;background:#eef2ff; display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600}
+    @media (max-width:640px){ .thumb-grid{grid-template-columns:repeat(2,1fr)} }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">YB</div>
+        <div>
+          <h1>SmartShopper</h1>
+          <p class="lead">Designing a smarter grocery shopping experience — research-led redesign to reduce friction and increase satisfaction.</p>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:13px;color:var(--muted)">Role: Lead UX Researcher</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:6px">Timeline: 10 weeks • Tools: Figma, Miro, UserTesting, SQL</div>
+      </div>
+    </header>
+
+    <div class="grid two-col">
+      <!-- main column -->
+      <section class="card content">
+        <div class="hero-image">[Hero: app screenshot placeholder]</div>
+
+        <h3 class="section-title">Project Overview</h3>
+        <p class="muted">SmartShopper helps busy shoppers plan and execute grocery trips with confidence. The product goal was to reduce decision friction, speed up shopping trips, and increase satisfaction for frequent grocery users and budget-conscious families.</p>
+
+        <div class="kpi-row" aria-hidden="true">
+          <div class="kpi"><span style="color:var(--muted)">Satisfaction</span><strong>+32%</strong><small style="display:block;color:var(--muted)">post-launch</small></div>
+          <div class="kpi"><span style="color:var(--muted)">Task time</span><strong>-25%</strong><small style="display:block;color:var(--muted)">checkout task</small></div>
+          <div class="kpi"><span style="color:var(--muted)">Retention</span><strong>+14%</strong><small style="display:block;color:var(--muted)">30-day active</small></div>
+        </div>
+
+        <h3 class="section-title" style="margin-top:20px">My Role & Responsibilities</h3>
+        <ul class="muted list">
+          <li>Led user research: interviews (n=12), usability tests (n=8) and diary studies (n=10).</li>
+          <li>Synthesized findings into personas, journey maps, and prioritized feature backlog.</li>
+          <li>Designed mid- to high-fidelity prototypes and ran iterative usability tests.</li>
+          <li>Worked closely with frontend engineers to implement changes and measure impact.</li>
+        </ul>
+
+        <h3 class="section-title">Research Process</h3>
+        <p class="muted">We began with exploratory research to understand shoppers' pain points: time pressure, unclear store layouts, and difficulty remembering items. Research methods included:</p>
+        <ul class="muted list">
+          <li><strong>Contextual interviews</strong> — in-person and remote shopping observations.</li>
+          <li><strong>Diary studies</strong> — daily logs for 2 weeks capturing shopping decisions and frustrations.</li>
+          <li><strong>Quant analysis</strong> — event funnel review to identify drop-off during checkout and list management.</li>
+        </ul>
+
+        <h3 class="section-title">Key Insights</h3>
+        <ol class="muted list">
+          <li>Shoppers value speed: long lists and unclear prioritization lead to abandoned carts.</li>
+          <li>Families need flexible lists that can be shared and prioritized across devices.</li>
+          <li>There is strong desire for shopping guidance (smart suggestions based on recipes and past purchases).</li>
+        </ol>
+
+        <h3 class="section-title">Design Process & Iteration</h3>
+        <p class="muted">We ran a design sprint focused on list prioritization and a “quick trip” flow. Iterations included:</p>
+        <ul class="muted list">
+          <li>Low-fidelity sketches to validate flow and priority controls.</li>
+          <li>Mid-fidelity wireframes to test the “quick trip” mode with users.</li>
+          <li>High-fidelity prototypes in Figma for usability sessions (8 participants) and A/B testing live with a small cohort.</li>
+        </ul>
+
+        <div class="thumb-grid" aria-hidden="true">
+          <div class="thumb">Wireframe 1</div>
+          <div class="thumb">Prototype 1</div>
+          <div class="thumb">Final UI</div>
+        </div>
+
+        <h3 class="section-title">Final Solution</h3>
+        <p class="muted">The final product included:</p>
+        <ul class="muted list">
+          <li><strong>Quick Trip Mode:</strong> prioritizes items for short store visits.</li>
+          <li><strong>Shareable Lists:</strong> real-time sync and item assignment for family members.</li>
+          <li><strong>Smart Suggestions:</strong> recipe-aware suggestions and substitutes to reduce decision fatigue.</li>
+        </ul>
+
+        <h3 class="section-title">Impact & Reflection</h3>
+        <p class="muted">After release, internal metrics tracked a 32% increase in measured satisfaction and a 25% reduction in time-to-complete our key checkout task. More importantly, qualitative feedback highlighted that users felt less rushed and more confident while shopping.</p>
+
+        <p class="muted"><strong>What I learned:</strong> prioritize tiny wins early — a focused 'quick trip' flow had outsized impact. Involving engineering early in prototype validation accelerated delivery and improved fidelity of the implemented experience.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/projects">Back to Projects</a>
+          <a class="btn btn-ghost" href="mailto:yaredbeyene@gmail.com">Contact me</a>
+        </div>
+      </section>
+
+      <!-- aside column -->
+      <aside class="aside">
+        <div class="card">
+          <h4 style="margin:0 0 8px">Project Details</h4>
+          <div class="meta">
+            <div class="pill">Team: 4</div>
+            <div class="pill">Phase: Prod</div>
+            <div class="pill">Platform: Mobile & Web</div>
+          </div>
+
+          <h4 style="margin-top:16px">Tools</h4>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px">
+            <div class="pill" style="background:#eef6ff;color:#075985">Figma</div>
+            <div class="pill" style="background:#f0fdf4;color:#065f46">Miro</div>
+            <div class="pill" style="background:#fff7ed;color:#92400e">UserTesting</div>
+          </div>
+
+          <h4 style="margin-top:16px">Metrics</h4>
+          <ul class="muted list">
+            <li>+32% satisfaction (post-launch)</li>
+            <li>-25% task time (checkout flow)</li>
+            <li>+14% 30-day retention</li>
+          </ul>
+
+          <h4 style="margin-top:16px">Screenshots</h4>
+          <div style="margin-top:10px">
+            <div class="thumb" style="height:80px">Screenshot 1</div>
+          </div>
+        </div>
+
+        <div style="height:20px"></div>
+
+        <div class="card">
+          <h4 style="margin:0 0 8px">Contact</h4>
+          <p class="muted" style="margin:0 0 8px">Want to know more about the process or see Figma files? Reach out.</p>
+          <a class="btn btn-primary" style="width:100%;text-align:center" href="mailto:yaredbeyene@gmail.com">Email Yared</a>
+          <a style="display:block;margin-top:8px;text-align:center;color:var(--muted)" href="https://ybeyene.github.io">Back to portfolio</a>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Yared Beyene • Designed &amp; researched by Yared
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
