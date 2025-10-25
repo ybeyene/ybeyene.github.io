@@ -156,3 +156,150 @@
 <script src="assets/js/template.js"></script>
 </body>
 </html>
+
+<!-- SCRIPTS -->
+  <script>
+    /* ---------------------------
+       Theme + Mobile Nav (same as before)
+       --------------------------- */
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const MENU = document.getElementById('menuToggle');
+    const NAV = document.getElementById('mainNav');
+
+    // restore theme from localStorage
+    const stored = localStorage.getItem('site-theme');
+    if (stored) body.className = stored;
+
+    themeToggle.addEventListener('click', () => {
+      const isLight = body.classList.contains('theme-light');
+      body.classList.toggle('theme-light', isLight === false);
+      body.classList.toggle('theme-dark', isLight === true);
+      const current = body.classList.contains('theme-dark') ? 'theme-dark' : 'theme-light';
+      localStorage.setItem('site-theme', current);
+      themeToggle.setAttribute('aria-pressed', body.classList.contains('theme-dark'));
+    });
+
+    // mobile nav toggle
+    MENU.addEventListener('click', () => {
+      const expanded = MENU.getAttribute('aria-expanded') === 'true';
+      MENU.setAttribute('aria-expanded', String(!expanded));
+      NAV.classList.toggle('open');
+      document.getElementById('navList').classList.toggle('open');
+    });
+
+    // smooth scrolling for nav links
+    document.querySelectorAll('.nav-link').forEach(a => {
+      a.addEventListener('click', (e) => {
+        // if link is external (starts with http) allow default
+        const href = a.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          NAV.classList.remove('open');
+          MENU.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // sticky nav on scroll
+    const nav = document.querySelector('.navbar');
+    const hero = document.querySelector('.hero');
+    function updateSticky() {
+      const heroHeight = hero ? hero.offsetHeight : 300;
+      if (window.scrollY > heroHeight - 80) nav.classList.add('sticky');
+      else nav.classList.remove('sticky');
+    }
+    window.addEventListener('scroll', updateSticky);
+    window.addEventListener('resize', updateSticky);
+    updateSticky();
+
+    /* ---------------------------
+       Typing effect for tagline (runs once on load)
+       - Uses the text from .tagline-static
+       - Types it into .type-target, then shows email link (already visible)
+       - Accessible: screen-reader-only text already present
+       --------------------------- */
+    (function() {
+      const staticEl = document.querySelector('.tagline-static');
+      const targetEl = document.querySelector('.type-target');
+      if (!staticEl || !targetEl) return;
+
+      const fullText = staticEl.textContent.trim();
+      const typingSpeed = 40;     // ms per character
+      const pauseBeforeStart = 350; // ms
+      const pauseAfter = 500;     // ms after typing completes
+
+      // hide the static copy visually (we keep it for aria-hidden and fallback)
+      staticEl.style.display = 'none';
+      targetEl.textContent = ''; // ensure empty
+
+      // small entrance animation for the title and target container
+      const title = document.querySelector('.title');
+      if (title) {
+        title.style.opacity = 0;
+        title.style.transform = 'translateY(8px)';
+        title.style.transition = 'opacity .45s ease, transform .45s ease';
+        // reveal title slightly earlier than the typing
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            title.style.opacity = 1;
+            title.style.transform = 'translateY(0)';
+          }, 120);
+        });
+      }
+
+      // begin typing after a short delay
+      setTimeout(() => {
+        let i = 0;
+        const caret = document.createElement('span');
+        caret.className = 'typing-caret';
+        caret.setAttribute('aria-hidden', 'true');
+        caret.style.display = 'inline-block';
+        caret.style.width = '10px';
+        caret.style.marginLeft = '6px';
+        caret.style.opacity = '1';
+        caret.style.transition = 'opacity .25s linear';
+        caret.textContent = '|';
+        targetEl.appendChild(caret);
+
+        function typeChar() {
+          if (i < fullText.length) {
+            // insert char before caret
+            const char = document.createTextNode(fullText.charAt(i));
+            targetEl.insertBefore(char, caret);
+            i++;
+            setTimeout(typeChar, typingSpeed);
+          } else {
+            // typing done: subtle caret blink then remove
+            let blinkCount = 0;
+            const blinkInterval = setInterval(() => {
+              caret.style.opacity = caret.style.opacity === '1' ? '0' : '1';
+              blinkCount++;
+              if (blinkCount > 6) {
+                clearInterval(blinkInterval);
+                caret.remove();
+                // show final state (no further animation)
+                setTimeout(() => {
+                  targetEl.classList.add('typed-complete');
+                }, pauseAfter);
+              }
+            }, 180);
+          }
+        }
+        typeChar();
+      }, pauseBeforeStart);
+    })();
+  </script>
+
+  <style>
+    /* Tiny inline styles for the typing caret and hiding the sr-only visually (if not in CSS) */
+    .type-target { font-weight: 400; color: var(--muted); font-size: 0.98rem; }
+    .typing-caret { opacity: 1; color: var(--accent); }
+    .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  </style>
+</body>
+</html>
+
+
